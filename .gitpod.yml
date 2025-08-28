@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      echo "Android Kotlin Dev Environment Ready!"
+      sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      gradle -v
+      kotlinc -version
+    command: |
+      echo "Kotlin & Android SDK Loaded!"
+ports:
+  - port: 8080
+    onOpen: open-preview
